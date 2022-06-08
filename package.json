@@ -26,6 +26,7 @@
     "react-redux": "^7.2.6"
   },
   "devDependencies": {
+    "typescript": "^4.6.3",
     "@types/node": "^17.0.14",
     "@types/react": "^17.0.39",
     "@types/react-dom": "^17.0.11",
@@ -36,6 +37,7 @@
   },
   "homepage": "https://github.com/baraja-core/ui#readme",
   "scripts": {
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
