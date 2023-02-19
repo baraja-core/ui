@@ -2,7 +2,7 @@ import { Box } from '@mui/system';
 import { FC } from 'react';
 import { Color } from '../../palette';
 import { useRouter } from 'next/router';
-import Link from 'next/cmsLink';
+import Link from 'next/link';
 
 interface HeaderMenuItemProps {
   label: string;

@@ -3,7 +3,7 @@ import { Avatar, Box, Button, Grid } from '@mui/material';
 import { Locale } from '../../core/locale';
 import { Card } from '../Card';
 import { useTranslation } from 'next-i18next';
-import Link from 'next/cmsLink';
+import Link from 'next/link';
 
 interface AuthorCardProps {
   avatarUrl?: string;
