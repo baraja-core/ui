@@ -1,4 +1,4 @@
-import { Locale } from '../../../../../core/Locale';
+import { Locale } from '.';
 
 const localeCodeToLabel: Record<Locale, string> = {
   [Locale.Cs]: 'Čeština',
