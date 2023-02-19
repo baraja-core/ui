@@ -1,7 +1,11 @@
 export enum Color {
+  black = '#000',
   dark = '#1d2125',
   white = '#fff',
   whiteBackground = 'rgb(255, 255, 255, .3)',
+  lightBackground = '#f3f2ee',
+  warningBackground = '#f9edbe',
+  warningBorder = '#f0c36d',
   red = '#dc3545',
   orange = '#e95736',
   gray = 'rgba(0, 0, 0, .125)',

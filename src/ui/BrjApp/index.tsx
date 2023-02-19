@@ -8,7 +8,7 @@ interface AppProps {
   stickyHeader?: boolean;
 }
 
-const BrjApp: FC<AppProps> = ({ children, header, footer, stickyHeader }) => (
+export const BrjApp: FC<AppProps> = ({ children, header, footer, stickyHeader }) => (
   <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
     {stickyHeader ? (
       <Box
@@ -29,5 +29,3 @@ const BrjApp: FC<AppProps> = ({ children, header, footer, stickyHeader }) => (
     {footer}
   </Box>
 );
-
-export default BrjApp;

@@ -1,7 +1,9 @@
 export type UserLoggedIdentity = {
-  id: string;
+  identityId: string;
+  isOAuthOk?: boolean;
   username: string;
   avatarUrl?: string;
+  fullName: string;
   firstName: string;
   lastName: string;
   email: string;
@@ -26,4 +28,10 @@ export enum OnlineStatus {
   Away = 'away',
   DoNotDisturb = 'doNotDisturb',
   InCall = 'inCall',
+}
+
+export enum OAuthStatus {
+  Ok = 'ok',
+  NotOk = 'notOk',
+  Waiting = 'waiting',
 }

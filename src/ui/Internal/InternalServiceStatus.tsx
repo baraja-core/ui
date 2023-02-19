@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from 'next/cmsLink';
 import { FC } from 'react';
 import { Box } from '@mui/material';
 import { Card } from '../Card';

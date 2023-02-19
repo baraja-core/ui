@@ -2,11 +2,13 @@ import { Container } from '@mui/material';
 import { Box } from '@mui/system';
 import { Theme, ThemeContext } from '../../core/ThemeContext';
 import { Color } from '../../palette';
-import { useRouter } from 'next/router';
-import { useContext } from 'react';
+import { FC, useContext } from 'react';
 
-export const Error404 = () => {
-  const router = useRouter();
+interface Error404Props {
+  pathname?: string;
+}
+
+export const Error404: FC<Error404Props> = ({ pathname }) => {
   const { theme } = useContext(ThemeContext);
 
   return (
@@ -27,7 +29,7 @@ export const Error404 = () => {
               fontFamily: 'monospace',
             }}
           >
-            {router.asPath}
+            {pathname}
           </code>
           was not found on this server.
           <br />
