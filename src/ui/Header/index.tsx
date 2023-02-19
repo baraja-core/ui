@@ -2,7 +2,7 @@ import { FC, ReactNode } from 'react';
 import { Box, Container } from '@mui/material';
 import { BrjLogo } from '../BrjLogo';
 import { Color } from '../../palette';
-import Link from 'next/link';
+import { Theme } from '../../core/ThemeContext';
 
 interface HeaderProps {
   children?: ReactNode;
@@ -20,14 +20,14 @@ export const Header: FC<HeaderProps> = ({ children }) => (
       color: 'white',
     }}
   >
-    <Container>
-      <Box sx={{ paddingTop: '.15em' }}>
-        <Link href="/">
-          <BrjLogo height={20} />
-        </Link>
-      </Box>
-      <Box>
-        <Box sx={{ textAlign: 'right' }}>{children}</Box>
+    <Container maxWidth="xl">
+      <Box sx={{ display: 'flex' }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginRight: '.5em' }}>
+          <a href="/">
+            <BrjLogo height={20} theme={Theme.Dark} />
+          </a>
+        </Box>
+        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'right', width: '100%' }}>{children}</Box>
       </Box>
     </Container>
   </Box>

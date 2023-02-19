@@ -10,7 +10,7 @@ interface HeaderMenuItemProps {
   selected?: boolean;
 }
 
-const HeaderMenuItem: FC<HeaderMenuItemProps> = ({ label, href, selected }) => {
+export const HeaderMenuItem: FC<HeaderMenuItemProps> = ({ label, href, selected }) => {
   const { asPath } = useRouter();
   const useBorder = (color: string) => `2px solid ${selected || href === asPath ? Color.orange : color}`;
 
@@ -34,5 +34,3 @@ const HeaderMenuItem: FC<HeaderMenuItemProps> = ({ label, href, selected }) => {
     </Link>
   );
 };
-
-export default HeaderMenuItem;

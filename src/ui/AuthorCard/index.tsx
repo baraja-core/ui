@@ -8,7 +8,7 @@ import Link from 'next/link';
 interface AuthorCardProps {
   avatarUrl?: string;
   authorName?: string;
-  locale: Locale;
+  locale?: Locale;
 }
 
 export const AuthorCard: FC<AuthorCardProps> = ({ avatarUrl, authorName, locale }) => {

@@ -4,11 +4,12 @@ import { Color } from '../../palette';
 
 interface LogoProps {
   height?: number;
+  theme?: Theme;
 }
 
-export const BrjLogo: FC<LogoProps> = ({ height }) => {
-  const { theme } = useContext(ThemeContext);
-  const primaryColor = theme === Theme.Light ? '#000' : '#fff';
+export const BrjLogo: FC<LogoProps> = ({ height, theme }) => {
+  const { theme: contextTheme } = useContext(ThemeContext);
+  const primaryColor = (theme ?? contextTheme) === Theme.Light ? '#000' : '#fff';
 
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 255.85 77.92" style={{ height: `${height ?? 32}px` }}>
