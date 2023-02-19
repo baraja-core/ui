@@ -22,8 +22,8 @@ export const Header: FC<HeaderProps> = ({ children }) => (
   >
     <Container maxWidth="xl">
       <Box sx={{ display: 'flex' }}>
-        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginRight: '.5em' }}>
-          <a href="/">
+        <Box sx={{ display: 'flex', marginRight: '.5em' }}>
+          <a href="/" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <BrjLogo height={20} theme={Theme.Dark} />
           </a>
         </Box>
