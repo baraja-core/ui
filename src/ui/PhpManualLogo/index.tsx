@@ -1,11 +1,22 @@
-import { useContext } from 'react';
+import { FC, useContext } from 'react';
 import { Theme, ThemeContext } from '../../core/ThemeContext';
 
-export const Logo = () => {
+interface LogoProps {
+  height?: number;
+}
+
+export const PhpManualLogo: FC<LogoProps> = ({ height }) => {
   const { theme } = useContext(ThemeContext);
 
   return (
-    <svg fill="none" strokeLinecap="square" strokeMiterlimit="10" version="1.1" viewBox="0 0 627 100" height="36">
+    <svg
+      fill="none"
+      strokeLinecap="square"
+      strokeMiterlimit="10"
+      version="1.1"
+      viewBox="0 0 627 100"
+      height={height ?? 36}
+    >
       <clipPath id="a">
         <path d="m0 0h627v100h-627v-100z" />
       </clipPath>
