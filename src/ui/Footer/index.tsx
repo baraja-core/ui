@@ -1,6 +1,7 @@
 import { FC, ReactNode, useContext } from 'react';
 import { Box, Container, IconButton } from '@mui/material';
-import { Theme, ThemeContext } from '../../core/ThemeContext';
+import { GlobalAppState } from '../../core/shareObject/globalAppState';
+import { Theme } from '../../core/theme/types';
 import { Color } from '../../palette';
 import { FooterFlag } from './FooterFlag';
 import { BrjLogo } from '../BrjLogo';
@@ -17,7 +18,8 @@ interface FooterProps {
 
 export const Footer: FC<FooterProps> = ({ children }) => {
   const { i18n } = useTranslation();
-  const { theme } = useContext(ThemeContext);
+  const { getContext } = useContext(GlobalAppState);
+  const theme = getContext().theme;
 
   return (
     <Box sx={{ marginTop: 'auto', paddingTop: '1.5em' }}>

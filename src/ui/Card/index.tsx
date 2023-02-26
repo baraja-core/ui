@@ -1,6 +1,7 @@
 import { FC, ReactNode, useContext } from 'react';
 import { Box } from '@mui/material';
-import { Theme, ThemeContext } from '../../core/ThemeContext';
+import { GlobalAppState } from '../../core/shareObject/globalAppState';
+import { Theme } from '../../core/theme/types';
 import { Color } from '../../palette';
 
 interface CardProps {
@@ -12,7 +13,8 @@ interface CardProps {
 }
 
 export const Card: FC<CardProps> = ({ children, padding, title, icon, background }) => {
-  const { theme } = useContext(ThemeContext);
+  const { getContext } = useContext(GlobalAppState);
+  const theme = getContext().theme;
 
   const content = <Box sx={{ padding: padding ?? 0 }}>{children}</Box>;
 

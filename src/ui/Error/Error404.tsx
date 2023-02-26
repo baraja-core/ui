@@ -1,6 +1,7 @@
 import { Container } from '@mui/material';
 import { Box } from '@mui/system';
-import { Theme, ThemeContext } from '../../core/ThemeContext';
+import { GlobalAppState } from '../../core/shareObject/globalAppState';
+import { Theme } from '../../core/theme/types';
 import { Color } from '../../palette';
 import { FC, useContext } from 'react';
 
@@ -9,7 +10,7 @@ interface Error404Props {
 }
 
 export const Error404: FC<Error404Props> = ({ pathname }) => {
-  const { theme } = useContext(ThemeContext);
+  const { getContext } = useContext(GlobalAppState);
 
   return (
     <Container>
@@ -22,7 +23,7 @@ export const Error404: FC<Error404Props> = ({ pathname }) => {
           The requested URL
           <code
             style={{
-              background: theme === Theme.Light ? '#ffeeee' : 'rgba(110, 118, 129, 0.4)',
+              background: getContext().theme === Theme.Light ? '#ffeeee' : 'rgba(110, 118, 129, 0.4)',
               borderRadius: '5px',
               padding: '.2em .4em',
               margin: '0 .3em',

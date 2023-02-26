@@ -1,14 +1,4 @@
-import { createContext } from 'react';
-
-export enum Theme {
-  Light = 'light',
-  Dark = 'dark',
-}
-
-interface Store {
-  theme: Theme;
-  setTheme: (theme: Theme) => void;
-}
+import { Theme } from './types';
 
 export const localStorageKey = 'system__dark-mode';
 
@@ -18,5 +8,3 @@ export const resolveDefaultTheme = (): Theme =>
     : typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
     ? Theme.Dark
     : Theme.Light;
-
-export const ThemeContext = createContext<Store>({ theme: resolveDefaultTheme() } as Store);

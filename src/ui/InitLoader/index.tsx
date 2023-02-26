@@ -1,6 +1,6 @@
 import { FC, ReactNode } from 'react';
 import { Box, CircularProgress, Typography } from '@mui/material';
-import { Theme } from '../../core/ThemeContext';
+import { Theme } from '../../core/theme/types';
 import { BrjLogo } from '../BrjLogo';
 
 interface InitLoaderProps {

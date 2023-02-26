@@ -1,5 +1,6 @@
 import { FC, useContext } from 'react';
-import { Theme, ThemeContext } from '../../core/ThemeContext';
+import { GlobalAppState } from '../../core/shareObject/globalAppState';
+import { Theme } from '../../core/theme/types';
 import { Color } from '../../palette';
 
 interface LogoProps {
@@ -8,8 +9,8 @@ interface LogoProps {
 }
 
 export const BrjLogo: FC<LogoProps> = ({ height, theme }) => {
-  const { theme: contextTheme } = useContext(ThemeContext);
-  const primaryColor = (theme ?? contextTheme) === Theme.Light ? '#000' : '#fff';
+  const { getContext } = useContext(GlobalAppState);
+  const primaryColor = (theme ?? getContext().theme) === Theme.Light ? '#000' : '#fff';
 
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 255.85 77.92" style={{ height: `${height ?? 32}px` }}>

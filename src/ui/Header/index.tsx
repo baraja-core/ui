@@ -2,7 +2,7 @@ import { FC, ReactNode } from 'react';
 import { Box, Container } from '@mui/material';
 import { BrjLogo } from '../BrjLogo';
 import { Color } from '../../palette';
-import { Theme } from '../../core/ThemeContext';
+import { Theme } from '../../core/theme/types';
 
 interface HeaderProps {
   children?: ReactNode;
