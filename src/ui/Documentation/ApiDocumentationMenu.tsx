@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Grid, Tooltip } from '@mui/material';
 import { ChevronLeft, ChevronRight, Home, Lock, Public } from '@mui/icons-material';
-import { DocumentationEndpoint } from '../../core/documentation/types';
+import { ApiDocumentationEndpoint } from '../../core/documentation/types';
 import Paper from '@mui/material/Paper';
 import MenuList from '@mui/material/MenuList';
 import MenuItem from '@mui/material/MenuItem';
@@ -10,7 +10,7 @@ import ListItemText from '@mui/material/ListItemText';
 import ListItemIcon from '@mui/material/ListItemIcon';
 
 interface RestApiDocumentationMenuProps {
-  endpoints: DocumentationEndpoint[];
+  endpoints: ApiDocumentationEndpoint[];
   activeEndpoint?: string;
   isMenuOpen: boolean;
   setEndpoint: (endpoint?: string) => void;

@@ -1,9 +1,9 @@
 import { FC } from 'react';
 import { Box, MenuItem } from '@mui/material';
-import { DocumentationEndpoint } from '../../core/documentation/types';
+import { ApiDocumentationEndpoint } from '../../core/documentation/types';
 
 interface RestApiDocumentationOverviewProps {
-  endpoints: DocumentationEndpoint[];
+  endpoints: ApiDocumentationEndpoint[];
   setEndpoint: (endpoint?: string) => void;
 }
 

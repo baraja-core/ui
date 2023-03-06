@@ -1,10 +1,10 @@
 import { FC } from 'react';
 import { Box, Typography } from '@mui/material';
-import { DocumentationEndpointAction } from '../../core/documentation/types';
+import { ApiDocumentationEndpointAction } from '../../core/documentation/types';
 import { ApiDocumentationResponse } from './ApiDocumentationResponse';
 
 interface ApiDocumentationResponseBadgeProps {
-  action: DocumentationEndpointAction;
+  action: ApiDocumentationEndpointAction;
 }
 
 export const ApiDocumentationResponseBadge: FC<ApiDocumentationResponseBadgeProps> = ({ action }) => (

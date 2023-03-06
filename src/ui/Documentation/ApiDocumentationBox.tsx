@@ -1,13 +1,13 @@
 import { FC, ReactNode, useEffect, useState } from 'react';
 import { Box, Typography } from '@mui/material';
-import { DocumentationEndpointAction } from '../../core/documentation/types';
+import { ApiDocumentationEndpointAction } from '../../core/documentation/types';
 import { ApiDocumentationResponseBadge } from './ApiDocumentationResponseBadge';
 import { ApiDocumentationBoxParameters } from './ApiDocumentationBoxParameters';
 import { ApiDocumentationBoxHeader } from './ApiDocumentationBoxHeader';
 
 interface ApiDocumentationBoxProps {
   route: string;
-  action: DocumentationEndpointAction;
+  action: ApiDocumentationEndpointAction;
   activeAction?: string;
   actions?: ReactNode[];
 }

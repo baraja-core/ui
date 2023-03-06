@@ -1,11 +1,11 @@
 import { FC, useEffect, useState } from 'react';
 import { Box } from '@mui/material';
-import { Documentation } from '../../core/documentation/types';
+import { ApiDocumentation } from '../../core/documentation/types';
 import { ApiDocumentationMenu } from './ApiDocumentationMenu';
 import { ApiDocumentationEndpoint } from './ApiDocumentationEndpoint';
 import { ApiDocumentationOverview } from './ApiDocumentationOverview';
 
-export const ApiDocumentationApp: FC<Documentation> = ({ endpoints }) => {
+export const ApiDocumentationApp: FC<ApiDocumentation> = ({ endpoints }) => {
   const getHashParts = () => String(window.location.hash.replace(/^#(.*)$/, '$1')).match(/^([^/]+)(?:\/([^/]+))?/);
   const endpointParts = getHashParts();
   const [activeEndpoint, setActiveEndpoint] = useState<string>();

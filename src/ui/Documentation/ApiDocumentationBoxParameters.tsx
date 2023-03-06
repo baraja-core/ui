@@ -1,10 +1,10 @@
 import { FC } from 'react';
 import { Box, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
 import { Error } from '@mui/icons-material';
-import { DocumentationEndpointAction } from '../../core/documentation/types';
+import { ApiDocumentationEndpointAction } from '../../core/documentation/types';
 
 interface ApiDocumentationBoxParametersProps {
-  action: DocumentationEndpointAction;
+  action: ApiDocumentationEndpointAction;
 }
 
 const paramsCell = { padding: '.25em' };

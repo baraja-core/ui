@@ -1,11 +1,11 @@
 import { FC } from 'react';
 import { Box, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
-import { DocumentationEndpointActionResponse } from '../../core/documentation/types';
+import { ApiDocumentationEndpointActionResponse } from '../../core/documentation/types';
 import { ApiDocumentationResponseTypescript } from './ApiDocumentationResponseTypescript';
 import { getColorByHttpCode } from '../../core/documentation/getColorByHttpCode';
 
 interface ApiDocumentationResponseProps {
-  response: DocumentationEndpointActionResponse;
+  response: ApiDocumentationEndpointActionResponse;
 }
 
 const paramsCell = { padding: '.25em' };
