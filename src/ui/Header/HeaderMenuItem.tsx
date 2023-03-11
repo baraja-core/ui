@@ -1,14 +1,14 @@
-import { Box } from '@mui/system';
 import { FC } from 'react';
 import { Color } from '../../palette';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import { Box, ButtonBase } from '@mui/material';
 
-interface HeaderMenuItemProps {
+type HeaderMenuItemProps = {
   label: string;
   href: string;
   selected?: boolean;
-}
+};
 
 export const HeaderMenuItem: FC<HeaderMenuItemProps> = ({ label, href, selected }) => {
   const { asPath } = useRouter();
@@ -16,21 +16,25 @@ export const HeaderMenuItem: FC<HeaderMenuItemProps> = ({ label, href, selected 
 
   return (
     <Link href={href}>
-      <Box
+      <ButtonBase
         component="span"
         sx={{
           textDecoration: 'none',
-          margin: '0 .5em',
-          padding: '.25em',
           color: 'white',
-          borderBottom: useBorder('#555'),
-          ':hover': {
-            borderBottom: useBorder('white'),
-          },
+          ['@media (max-width:700px)']: { width: '100%' },
+          ['@media (min-width:700px)']: { margin: '0 .5em' },
         }}
       >
-        {label}
-      </Box>
+        <Box
+          sx={{
+            padding: '.25em',
+            borderBottom: useBorder(Color.whiteBackground),
+            ':hover': { borderBottom: useBorder(Color.white) },
+          }}
+        >
+          {label}
+        </Box>
+      </ButtonBase>
     </Link>
   );
 };

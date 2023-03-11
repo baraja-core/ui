@@ -1,34 +1,82 @@
-import { FC, ReactNode } from 'react';
-import { Box, Container } from '@mui/material';
+import { FC, ReactNode, useEffect, useState } from 'react';
+import { Box, Container, IconButton } from '@mui/material';
+import { HeaderSearchIcon } from './HeaderSearchIcon';
+import { HeaderIdentity } from './HeaderIdentity';
+import { HeaderSearch } from './HeaderSearch';
 import { BrjLogo } from '../BrjLogo';
+import { Card } from '../Card';
+import { SearchConfiguration } from '../../core/search/types';
 import { Color } from '../../palette';
 import { Theme } from '../../core/theme/types';
+import { useRouter } from 'next/router';
+import MenuIcon from '@mui/icons-material/Menu';
 
-interface HeaderProps {
-  children?: ReactNode;
-}
+type HeaderProps = {
+  children?: ReactNode | ReactNode[];
+  search?: SearchConfiguration;
+  enableLogin?: boolean;
+};
 
-// TODO: xs={3} sm={2} lg={1}
+export const Header: FC<HeaderProps> = ({ children, search, enableLogin }) => {
+  const router = useRouter();
+  const [isSearchOpen, setSearchOpen] = useState(false);
+  const [isMenuOpen, setMenuOpen] = useState(false);
 
-export const Header: FC<HeaderProps> = ({ children }) => (
-  <Box
-    sx={{
-      height: '50px',
-      padding: '.6em',
-      borderBottom: '1px solid black',
-      background: Color.dark,
-      color: 'white',
-    }}
-  >
-    <Container maxWidth="xl">
-      <Box sx={{ display: 'flex' }}>
-        <Box sx={{ display: 'flex', marginRight: '.5em' }}>
-          <a href="/" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <BrjLogo height={20} theme={Theme.Dark} />
-          </a>
+  const closeHamburger = () => setMenuOpen(false);
+
+  useEffect(() => {
+    router.events.on('routeChangeStart', closeHamburger);
+
+    return () => router.events.off('routeChangeStart', closeHamburger);
+  }, [router.events]);
+
+  return (
+    <Box sx={{ height: '50px', padding: '.6em', background: Color.dark, color: 'white' }}>
+      <Container maxWidth="xl">
+        <Box sx={{ display: 'flex' }}>
+          <Box sx={{ display: 'flex', marginRight: '.5em', ['@media (max-width:300px)']: { display: 'none' } }}>
+            <a href="/" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <BrjLogo height={20} theme={Theme.Dark} />
+            </a>
+          </Box>
+          {search && isSearchOpen ? (
+            <HeaderSearch configuration={search} onClose={() => setSearchOpen(false)} />
+          ) : (
+            <>
+              <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'right', width: '100%' }}>
+                <Box sx={{ ['@media (max-width:700px)']: { display: 'none' } }}>{children}</Box>
+              </Box>
+              {search && (
+                <Box sx={{ display: 'flex', alignItems: 'stretch' }}>
+                  <HeaderSearchIcon onOpen={() => setSearchOpen(true)} />
+                </Box>
+              )}
+              {enableLogin && (
+                <Box sx={{ display: 'flex', alignItems: 'stretch' }}>
+                  <HeaderIdentity />
+                </Box>
+              )}
+              <IconButton
+                sx={{ p: '.15em', mx: 1, ['@media (min-width:701px)']: { display: 'none' } }}
+                onClick={() => setMenuOpen(!isMenuOpen)}
+              >
+                <MenuIcon />
+              </IconButton>
+            </>
+          )}
         </Box>
-        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'right', width: '100%' }}>{children}</Box>
-      </Box>
-    </Container>
-  </Box>
-);
+      </Container>
+      {isMenuOpen && (
+        <Box sx={{ position: 'relative', zIndex: 9999, ['@media (min-width:701px)']: { display: 'none' } }}>
+          <Card>
+            {Object.entries(Array.isArray(children) ? children : [children]).map(([key, item]) => (
+              <Box key={key} sx={{ my: 1 }}>
+                {item}
+              </Box>
+            ))}
+          </Card>
+        </Box>
+      )}
+    </Box>
+  );
+};
