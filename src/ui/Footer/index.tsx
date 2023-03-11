@@ -12,9 +12,9 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 
-interface FooterProps {
+type FooterProps = {
   children: ReactNode;
-}
+};
 
 export const Footer: FC<FooterProps> = ({ children }) => {
   const { i18n } = useTranslation();

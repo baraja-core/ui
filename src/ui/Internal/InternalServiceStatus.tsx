@@ -4,9 +4,9 @@ import { Box } from '@mui/material';
 import { Card } from '../Card';
 import { Color } from '../../palette';
 
-interface InternalServiceStatusProps {
+type InternalServiceStatusProps = {
   status: 'ok' | 'error';
-}
+};
 
 export const InternalServiceStatus: FC<InternalServiceStatusProps> = ({ status }) => {
   const color = status === 'ok' ? Color.prideGreen : Color.prideRed;

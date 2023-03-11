@@ -2,9 +2,9 @@ import { FC, useContext } from 'react';
 import { GlobalAppState } from '../../core/shareObject/globalAppState';
 import { Theme } from '../../core/theme/types';
 
-interface LogoProps {
+type LogoProps = {
   height?: number;
-}
+};
 
 export const PhpManualLogo: FC<LogoProps> = ({ height }) => {
   const { getContext } = useContext(GlobalAppState);

@@ -5,11 +5,11 @@ import { Card } from '../Card';
 import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 
-interface AuthorCardProps {
+type AuthorCardProps = {
   avatarUrl?: string;
   authorName?: string;
   locale?: Locale;
-}
+};
 
 export const AuthorCard: FC<AuthorCardProps> = ({ avatarUrl, authorName, locale }) => {
   const { t } = useTranslation();

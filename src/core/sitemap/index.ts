@@ -1,5 +1,5 @@
-export interface SitemapItem {
+export type SitemapItem = {
   slug: string;
   label: string;
   lastModificationDate: string;
-}
+};

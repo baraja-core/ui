@@ -2,11 +2,11 @@ import { FC, useState } from 'react';
 import { Box, CircularProgress, TextField } from '@mui/material';
 import { hash } from '../../core/security/hash';
 
-interface EditorProps {
+type EditorProps = {
   value: string;
   label?: string;
   rows?: number;
-}
+};
 
 export const Editor: FC<EditorProps> = ({ value, label, rows }) => {
   const [content, setContent] = useState('');

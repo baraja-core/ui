@@ -4,13 +4,13 @@ import { GlobalAppState } from '../../core/shareObject/globalAppState';
 import { Theme } from '../../core/theme/types';
 import { Color } from '../../palette';
 
-interface CardProps {
+type CardProps = {
   children: ReactNode;
   padding?: number;
   title?: string;
   icon?: ReactNode;
   background?: string;
-}
+};
 
 export const Card: FC<CardProps> = ({ children, padding, title, icon, background }) => {
   const { getContext } = useContext(GlobalAppState);

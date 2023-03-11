@@ -5,9 +5,9 @@ import { Theme } from '../../core/theme/types';
 import { Color } from '../../palette';
 import { FC, useContext } from 'react';
 
-interface Error404Props {
+type Error404Props = {
   pathname?: string;
-}
+};
 
 export const Error404: FC<Error404Props> = ({ pathname }) => {
   const { getContext } = useContext(GlobalAppState);

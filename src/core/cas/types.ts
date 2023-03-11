@@ -1,36 +1,36 @@
 import { UserIdentity } from '../shareObject/types';
 
-export interface OrganisationResponse {
+export type OrganisationResponse = {
   slug: string;
   name: string;
   default: boolean;
   adminAccess: boolean;
   description?: string;
-}
+};
 
-export interface CasResponse {
+export type CasResponse = {
   organisations: OrganisationResponse[];
   identity?: UserIdentity & { requireOtp?: boolean };
-}
+};
 
-export interface CasLoginResponse {
+export type CasLoginResponse = {
   isLoggedIn: boolean;
   errorMessage?: string;
   identityId: string;
   requireOtp: boolean;
   fullName: string;
   avatarUrl: string;
-}
+};
 
-export interface CasVerifyOAuthResponse {
+export type CasVerifyOAuthResponse = {
   ok: boolean;
-}
+};
 
-export interface CasState {
+export type CasState = {
   success: boolean;
   selectedOrganisation?: string;
   organisations: OrganisationResponse[];
-}
+};
 
 export enum UserStatus {
   none = 0,

@@ -5,13 +5,13 @@ import InsertLinkIcon from '@mui/icons-material/InsertLink';
 import UnfoldMoreIcon from '@mui/icons-material/UnfoldMore';
 import UnfoldLessIcon from '@mui/icons-material/UnfoldLess';
 
-interface ApiDocumentationBoxHeaderProps {
+type ApiDocumentationBoxHeaderProps = {
   route: string;
   action: ApiDocumentationEndpointAction;
   actions?: ReactNode[];
   open: boolean;
   setOpen: (open: boolean) => void;
-}
+};
 
 const variantByAction = [
   { code: 'GET', variant: '#3F51B5' },

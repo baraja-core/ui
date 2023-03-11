@@ -3,9 +3,9 @@ import { Box, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, 
 import { Error } from '@mui/icons-material';
 import { ApiDocumentationEndpointAction } from '../../core/documentation/types';
 
-interface ApiDocumentationBoxParametersProps {
+type ApiDocumentationBoxParametersProps = {
   action: ApiDocumentationEndpointAction;
-}
+};
 
 const paramsCell = { padding: '.25em' };
 

@@ -10,9 +10,9 @@ import {
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 
-interface ApiDocumentationResponseTypescriptProps {
+type ApiDocumentationResponseTypescriptProps = {
   definition: string;
-}
+};
 
 export const ApiDocumentationResponseTypescript: FC<ApiDocumentationResponseTypescriptProps> = ({ definition }) => {
   const [open, setOpen] = useState(false);

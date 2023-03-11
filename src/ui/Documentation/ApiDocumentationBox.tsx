@@ -5,12 +5,12 @@ import { ApiDocumentationResponseBadge } from './ApiDocumentationResponseBadge';
 import { ApiDocumentationBoxParameters } from './ApiDocumentationBoxParameters';
 import { ApiDocumentationBoxHeader } from './ApiDocumentationBoxHeader';
 
-interface ApiDocumentationBoxProps {
+type ApiDocumentationBoxProps = {
   route: string;
   action: ApiDocumentationEndpointAction;
   activeAction?: string;
   actions?: ReactNode[];
-}
+};
 
 export const ApiDocumentationBox: FC<ApiDocumentationBoxProps> = ({ route, action, activeAction, actions }) => {
   const [open, setOpen] = useState(false);

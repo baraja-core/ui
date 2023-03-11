@@ -3,9 +3,9 @@ import { Box, Typography } from '@mui/material';
 import { ApiDocumentationEndpointAction } from '../../core/documentation/types';
 import { ApiDocumentationResponse } from './ApiDocumentationResponse';
 
-interface ApiDocumentationResponseBadgeProps {
+type ApiDocumentationResponseBadgeProps = {
   action: ApiDocumentationEndpointAction;
-}
+};
 
 export const ApiDocumentationResponseBadge: FC<ApiDocumentationResponseBadgeProps> = ({ action }) => (
   <>

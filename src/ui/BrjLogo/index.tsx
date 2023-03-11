@@ -3,10 +3,10 @@ import { GlobalAppState } from '../../core/shareObject/globalAppState';
 import { Theme } from '../../core/theme/types';
 import { Color } from '../../palette';
 
-interface LogoProps {
+type LogoProps = {
   height?: number;
   theme?: Theme;
-}
+};
 
 export const BrjLogo: FC<LogoProps> = ({ height, theme }) => {
   const { getContext } = useContext(GlobalAppState);

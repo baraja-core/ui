@@ -3,10 +3,10 @@ import { Box, CircularProgress, Typography } from '@mui/material';
 import { Theme } from '../../core/theme/types';
 import { BrjLogo } from '../BrjLogo';
 
-interface InitLoaderProps {
+type InitLoaderProps = {
   children: ReactNode;
   loading?: boolean;
-}
+};
 
 export const InitLoader: FC<InitLoaderProps> = ({ children, loading }) => (
   <>

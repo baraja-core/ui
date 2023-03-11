@@ -9,13 +9,13 @@ import Typography from '@mui/material/Typography';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemIcon from '@mui/material/ListItemIcon';
 
-interface RestApiDocumentationMenuProps {
+type RestApiDocumentationMenuProps = {
   endpoints: ApiDocumentationEndpoint[];
   activeEndpoint?: string;
   isMenuOpen: boolean;
   setEndpoint: (endpoint?: string) => void;
   setMenuOpen: () => void;
-}
+};
 
 export const ApiDocumentationMenu: FC<RestApiDocumentationMenuProps> = ({
   endpoints,

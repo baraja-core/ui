@@ -7,9 +7,9 @@ export enum EndpointVisibility {
   Private = 'private',
 }
 
-interface ApiDocumentationVisibilityProps {
+type ApiDocumentationVisibilityProps = {
   visibility: EndpointVisibility;
-}
+};
 
 export const ApiDocumentationVisibility: FC<ApiDocumentationVisibilityProps> = ({ visibility }) => (
   <Box

@@ -2,10 +2,10 @@ import { FC } from 'react';
 import { Box, MenuItem } from '@mui/material';
 import { ApiDocumentationEndpoint } from '../../core/documentation/types';
 
-interface RestApiDocumentationOverviewProps {
+type RestApiDocumentationOverviewProps = {
   endpoints: ApiDocumentationEndpoint[];
   setEndpoint: (endpoint?: string) => void;
-}
+};
 
 export const ApiDocumentationOverview: FC<RestApiDocumentationOverviewProps> = ({ endpoints, setEndpoint }) => (
   <>

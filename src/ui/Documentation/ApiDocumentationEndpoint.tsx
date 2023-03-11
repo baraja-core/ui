@@ -4,10 +4,10 @@ import { ApiDocumentationEndpoint } from '../../core/documentation/types';
 import { ApiDocumentationVisibility, EndpointVisibility } from './ApiDocumentationVisibility';
 import { ApiDocumentationBox } from './ApiDocumentationBox';
 
-interface RestApiDocumentationEndpointProps {
+type RestApiDocumentationEndpointProps = {
   endpoint: ApiDocumentationEndpoint;
   activeAction?: string;
-}
+};
 
 export const ApiDocumentationEndpoint: FC<RestApiDocumentationEndpointProps> = ({ endpoint, activeAction }) => (
   <>

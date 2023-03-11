@@ -4,9 +4,9 @@ import { ApiDocumentationEndpointActionResponse } from '../../core/documentation
 import { ApiDocumentationResponseTypescript } from './ApiDocumentationResponseTypescript';
 import { getColorByHttpCode } from '../../core/documentation/getColorByHttpCode';
 
-interface ApiDocumentationResponseProps {
+type ApiDocumentationResponseProps = {
   response: ApiDocumentationEndpointActionResponse;
-}
+};
 
 const paramsCell = { padding: '.25em' };
 
