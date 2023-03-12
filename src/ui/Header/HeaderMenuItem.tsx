@@ -15,7 +15,7 @@ export const HeaderMenuItem: FC<HeaderMenuItemProps> = ({ label, href, selected 
   const useBorder = (color: string) => `2px solid ${selected || href === asPath ? Color.orange : color}`;
 
   return (
-    <Link href={href}>
+    <Link href={href} style={{ textDecoration: 'none' }}>
       <ButtonBase
         component="span"
         sx={{

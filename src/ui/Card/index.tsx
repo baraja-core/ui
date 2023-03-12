@@ -5,15 +5,16 @@ import { Theme } from '../../core/theme/types';
 import { Color } from '../../palette';
 
 type CardProps = {
-  children: ReactNode;
+  children?: ReactNode;
   padding?: number;
+  margin?: string | number;
   title?: ReactNode | string;
   footer?: ReactNode | string;
   icon?: ReactNode;
   background?: string;
 };
 
-export const Card: FC<CardProps> = ({ children, padding, title, footer, icon, background }) => {
+export const Card: FC<CardProps> = ({ children, padding, margin, title, footer, icon, background }) => {
   const { getContext } = useContext(GlobalAppState);
   const theme = getContext().theme;
 
@@ -24,7 +25,7 @@ export const Card: FC<CardProps> = ({ children, padding, title, footer, icon, ba
       sx={{
         border: `1px solid ${theme === Theme.Light ? Color.gray : Color.grayDarkBorder}`,
         borderRadius: '.25rem',
-        margin: '.75em 0',
+        margin: margin ?? '.75em 0',
         background: background ?? (theme === Theme.Light ? Color.white : Color.blackBackground),
       }}
     >

@@ -1,8 +1,10 @@
 import { FC, useEffect, useState } from 'react';
 import { Box, IconButton, InputAdornment, TextField } from '@mui/material';
 import { SearchConfiguration } from '../../core/search/types';
+import { Color } from '../../palette';
 import SearchIcon from '@mui/icons-material/Search';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { useRouter } from 'next/router';
 
 type HeaderSearchProps = {
   configuration: SearchConfiguration;
@@ -10,7 +12,16 @@ type HeaderSearchProps = {
 };
 
 export const HeaderSearch: FC<HeaderSearchProps> = ({ configuration, onClose }) => {
+  const { asPath, query } = useRouter();
   const [searchQuery, setSearchQuery] = useState('');
+  const isSearchActive = Boolean(configuration?.serpUrl === asPath.replace(/^\/?(.+?)\?(.*)$/, '$1'));
+  const queryParam = configuration.queryParameterName || 'q';
+
+  useEffect(() => {
+    if (!isSearchActive) return;
+    const queryParamValue = String(query[queryParam] || '');
+    setSearchQuery(queryParamValue);
+  }, [isSearchActive]);
 
   useEffect(() => {
     const handleEsc = (event: { keyCode?: number }) => {
@@ -27,7 +38,7 @@ export const HeaderSearch: FC<HeaderSearchProps> = ({ configuration, onClose }) 
       <Box sx={{ display: 'flex', width: '100%' }}>
         <Box>
           <IconButton onClick={() => onClose()} sx={{ p: '.15em', mr: 1 }}>
-            <ArrowBackIcon />
+            <ArrowBackIcon sx={{ color: Color.white }} />
           </IconButton>
         </Box>
         <Box sx={{ width: '100%' }}>
@@ -37,13 +48,14 @@ export const HeaderSearch: FC<HeaderSearchProps> = ({ configuration, onClose }) 
               autoFocus
               autoComplete="off"
               value={searchQuery}
-              name={configuration.queryParameterName || 'q'}
+              name={queryParam}
               onChange={(e) => setSearchQuery(String(e.target.value))}
               size="small"
+              sx={{ input: { color: Color.white }, border: `1px solid ${Color.white}`, borderRadius: 1 }}
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start" sx={{ ['@media (max-width:780px)']: { display: 'none' } }}>
-                    <SearchIcon />
+                    <SearchIcon sx={{ color: Color.white }} />
                   </InputAdornment>
                 ),
                 style: { height: '2em', width: '100%' },

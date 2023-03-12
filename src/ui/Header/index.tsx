@@ -3,6 +3,7 @@ import { Box, Container, IconButton } from '@mui/material';
 import { HeaderSearchIcon } from './HeaderSearchIcon';
 import { HeaderIdentity } from './HeaderIdentity';
 import { HeaderSearch } from './HeaderSearch';
+import { ThemeSwitch } from '../ThemeSwitch';
 import { BrjLogo } from '../BrjLogo';
 import { Card } from '../Card';
 import { SearchConfiguration } from '../../core/search/types';
@@ -20,17 +21,22 @@ type HeaderProps = {
 };
 
 export const Header: FC<HeaderProps> = ({ children, search, enableLogin }) => {
-  const router = useRouter();
+  const { asPath, events } = useRouter();
   const [isSearchOpen, setSearchOpen] = useState(false);
   const [isMenuOpen, setMenuOpen] = useState(false);
 
   const closeHamburger = () => setMenuOpen(false);
+  const isSearchActive = Boolean(search && search?.serpUrl === asPath.replace(/^\/?(.+?)\?(.*)$/, '$1'));
 
   useEffect(() => {
-    router.events.on('routeChangeStart', closeHamburger);
+    events.on('routeChangeStart', closeHamburger);
+    return () => events.off('routeChangeStart', closeHamburger);
+  }, [events]);
 
-    return () => router.events.off('routeChangeStart', closeHamburger);
-  }, [router.events]);
+  useEffect(() => {
+    if (!isSearchActive) return;
+    setSearchOpen(true);
+  }, [isSearchActive]);
 
   return (
     <Box sx={{ height: '50px', padding: '.6em 0', background: Color.dark, color: 'white' }}>
@@ -62,8 +68,9 @@ export const Header: FC<HeaderProps> = ({ children, search, enableLogin }) => {
                 sx={{ p: '.15em', mx: 1, ['@media (min-width:701px)']: { display: 'none' } }}
                 onClick={() => setMenuOpen(!isMenuOpen)}
               >
-                <MenuIcon />
+                <MenuIcon sx={{ color: Color.white }} />
               </IconButton>
+              <ThemeSwitch header={true} />
             </>
           )}
         </Box>
@@ -79,10 +86,10 @@ export const Header: FC<HeaderProps> = ({ children, search, enableLogin }) => {
         }}
       >
         <Collapse in={isMenuOpen}>
-          <Card>
+          <Card background={Color.blackBackground}>
             <Box sx={{ textAlign: 'right', px: 2, pt: 1 }}>
               <IconButton sx={{ p: '.15em' }} onClick={() => setMenuOpen(false)}>
-                <CloseIcon />
+                <CloseIcon sx={{ color: Color.white }} />
               </IconButton>
             </Box>
             {Object.entries(Array.isArray(children) ? children : [children]).map(([key, item]) => (
