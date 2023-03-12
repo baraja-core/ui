@@ -10,6 +10,8 @@ import { Color } from '../../palette';
 import { Theme } from '../../core/theme/types';
 import { useRouter } from 'next/router';
 import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
+import Collapse from '@mui/material/Collapse';
 
 type HeaderProps = {
   children?: ReactNode | ReactNode[];
@@ -31,7 +33,7 @@ export const Header: FC<HeaderProps> = ({ children, search, enableLogin }) => {
   }, [router.events]);
 
   return (
-    <Box sx={{ height: '50px', padding: '.6em', background: Color.dark, color: 'white' }}>
+    <Box sx={{ height: '50px', padding: '.6em 0', background: Color.dark, color: 'white' }}>
       <Container maxWidth="xl">
         <Box sx={{ display: 'flex' }}>
           <Box sx={{ display: 'flex', marginRight: '.5em', ['@media (max-width:300px)']: { display: 'none' } }}>
@@ -66,17 +68,31 @@ export const Header: FC<HeaderProps> = ({ children, search, enableLogin }) => {
           )}
         </Box>
       </Container>
-      {isMenuOpen && (
-        <Box sx={{ position: 'relative', zIndex: 9999, ['@media (min-width:701px)']: { display: 'none' } }}>
+      <Box
+        sx={{
+          position: 'absolute',
+          left: 0,
+          top: 0,
+          width: '100%',
+          zIndex: 9999,
+          ['@media (min-width:701px)']: { display: 'none' },
+        }}
+      >
+        <Collapse in={isMenuOpen}>
           <Card>
+            <Box sx={{ textAlign: 'right', px: 2, pt: 1 }}>
+              <IconButton sx={{ p: '.15em' }} onClick={() => setMenuOpen(false)}>
+                <CloseIcon />
+              </IconButton>
+            </Box>
             {Object.entries(Array.isArray(children) ? children : [children]).map(([key, item]) => (
-              <Box key={key} sx={{ my: 1 }}>
+              <Box key={key} sx={{ my: 2 }}>
                 {item}
               </Box>
             ))}
           </Card>
-        </Box>
-      )}
+        </Collapse>
+      </Box>
     </Box>
   );
 };

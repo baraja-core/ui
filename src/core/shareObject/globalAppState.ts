@@ -1,9 +1,13 @@
 import { Theme } from '../theme/types';
 import { createContext } from 'react';
 import { resolveDefaultTheme } from '../theme/resolveDefaultTheme';
+import { Locale } from '../locale';
+import { UserIdentity } from './types';
 
 export type StoreData = {
   theme?: Theme;
+  locale?: Locale;
+  identity?: UserIdentity;
 };
 
 export type Store = {

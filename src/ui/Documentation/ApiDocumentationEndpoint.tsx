@@ -1,11 +1,11 @@
 import { FC } from 'react';
 import { Paper } from '@mui/material';
-import { ApiDocumentationEndpoint } from '../../core/documentation/types';
+import { ApiDocumentationEndpoint as ApiDocumentationEndpointEntity } from '../../core/documentation/types';
 import { ApiDocumentationVisibility, EndpointVisibility } from './ApiDocumentationVisibility';
 import { ApiDocumentationBox } from './ApiDocumentationBox';
 
 type RestApiDocumentationEndpointProps = {
-  endpoint: ApiDocumentationEndpoint;
+  endpoint: ApiDocumentationEndpointEntity;
   activeAction?: string;
 };
 

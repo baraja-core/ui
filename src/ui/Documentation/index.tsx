@@ -1,10 +1,10 @@
 import { FC } from 'react';
 import { Box, CircularProgress } from '@mui/material';
-import { ApiDocumentation } from '../../core/documentation/types';
+import { ApiDocumentation as ApiDocumentationEntity } from '../../core/documentation/types';
 import { ApiDocumentationApp } from './ApiDocumentationApp';
 
 type ApiDocumentationProps = {
-  documentation: ApiDocumentation;
+  documentation: ApiDocumentationEntity;
 };
 
 export const ApiDocumentation: FC<ApiDocumentationProps> = ({ documentation }) => (

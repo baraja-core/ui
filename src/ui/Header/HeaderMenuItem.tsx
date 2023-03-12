@@ -20,6 +20,7 @@ export const HeaderMenuItem: FC<HeaderMenuItemProps> = ({ label, href, selected 
         component="span"
         sx={{
           textDecoration: 'none',
+          justifyContent: 'left',
           color: 'white',
           ['@media (max-width:700px)']: { width: '100%' },
           ['@media (min-width:700px)']: { margin: '0 .5em' },
@@ -27,9 +28,12 @@ export const HeaderMenuItem: FC<HeaderMenuItemProps> = ({ label, href, selected 
       >
         <Box
           sx={{
-            padding: '.25em',
-            borderBottom: useBorder(Color.whiteBackground),
-            ':hover': { borderBottom: useBorder(Color.white) },
+            ['@media (min-width:700px)']: {
+              padding: '.25em',
+              borderBottom: useBorder(Color.whiteBackground),
+              ':hover': { borderBottom: useBorder(Color.white) },
+            },
+            ['@media (max-width:700px)']: { padding: '0 .75em' },
           }}
         >
           {label}

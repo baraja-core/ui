@@ -1,5 +1,6 @@
 export enum Color {
   black = '#000',
+  blackBackground = '#0d1117',
   dark = '#1d2125',
   white = '#fff',
   whiteBackground = 'rgb(255, 255, 255, .3)',
