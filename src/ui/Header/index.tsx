@@ -52,7 +52,7 @@ export const Header: FC<HeaderProps> = ({ children, appName, orientation, search
         <Box sx={{ display: 'flex' }}>
           <Box sx={{ display: 'flex', marginRight: '.5em', ['@media (max-width:300px)']: { display: 'none' } }}>
             <Link href="/">
-              <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
+              <Box sx={{ display: 'flex', alignItems: 'center', height: '100%', cursor: 'pointer' }}>
                 <BrjLogo height={20} theme={Theme.Dark} />
               </Box>
             </Link>
@@ -66,7 +66,14 @@ export const Header: FC<HeaderProps> = ({ children, appName, orientation, search
             <HeaderSearch configuration={search} onClose={() => setSearchOpen(false)} />
           ) : (
             <>
-              <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: orientation ?? 'left', width: '100%' }}>
+              <Box
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: orientation ?? 'left',
+                  width: '100%',
+                }}
+              >
                 <Box sx={{ ['@media (max-width:700px)']: { display: 'none' } }}>{children}</Box>
               </Box>
               {search && (
