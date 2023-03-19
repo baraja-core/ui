@@ -7,7 +7,6 @@ import { FooterFlag } from './FooterFlag';
 import { BrjLogo } from '../BrjLogo';
 import { FooterServiceStatus } from './FooterServiceStatus';
 import { FooterSwitcher } from './FooterSwitcher';
-import { useTranslation } from 'next-i18next';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import YouTubeIcon from '@mui/icons-material/YouTube';
@@ -17,9 +16,8 @@ type FooterProps = {
 };
 
 export const Footer: FC<FooterProps> = ({ children }) => {
-  const { i18n } = useTranslation();
   const { getContext } = useContext(GlobalAppState);
-  const theme = getContext().theme;
+  const { theme, locale } = getContext();
 
   return (
     <Box sx={{ marginTop: 'auto', paddingTop: '1.5em' }}>
@@ -59,7 +57,7 @@ export const Footer: FC<FooterProps> = ({ children }) => {
             >
               <Box sx={{ textAlign: 'center', fontSize: '10pt', padding: '1em 0' }}>
                 <Box>
-                  <a href={`https://brj.cz?locale=${i18n.language}`} target="_blank">
+                  <a href={`https://brj.cz${locale ? `?locale=${encodeURIComponent(locale)}` : ''}`} target="_blank">
                     <BrjLogo height={20} />
                   </a>
                 </Box>
