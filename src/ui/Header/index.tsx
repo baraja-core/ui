@@ -18,12 +18,13 @@ import Collapse from '@mui/material/Collapse';
 
 type HeaderProps = {
   children?: ReactNode | ReactNode[];
+  appName?: string;
   orientation?: 'left' | 'right';
   search?: SearchConfiguration;
   enableLogin?: boolean;
 };
 
-export const Header: FC<HeaderProps> = ({ children, orientation, search, enableLogin }) => {
+export const Header: FC<HeaderProps> = ({ children, appName, orientation, search, enableLogin }) => {
   const { asPath, events } = useRouter();
   const [isSearchOpen, setSearchOpen] = useState(false);
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -56,6 +57,11 @@ export const Header: FC<HeaderProps> = ({ children, orientation, search, enableL
               </Box>
             </Link>
           </Box>
+          {appName && (
+            <Box sx={{ display: 'flex', alignItems: 'center', fontSize: '14pt', flexShrink: 0, p: '0 1em' }}>
+              {appName}
+            </Box>
+          )}
           {search && isSearchOpen ? (
             <HeaderSearch configuration={search} onClose={() => setSearchOpen(false)} />
           ) : (
