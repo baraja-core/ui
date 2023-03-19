@@ -41,6 +41,10 @@ export const Header: FC<HeaderProps> = ({ children, orientation, search, enableL
     setSearchOpen(true);
   }, [isSearchActive]);
 
+  useEffect(() => {
+    if (asPath === '/') setSearchOpen(false);
+  }, [asPath]);
+
   return (
     <Box sx={{ height: HeaderHeight, padding: '.6em 0', background: Color.dark, color: 'white' }}>
       <Container maxWidth="xl">

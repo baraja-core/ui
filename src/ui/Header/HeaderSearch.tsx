@@ -19,8 +19,7 @@ export const HeaderSearch: FC<HeaderSearchProps> = ({ configuration, onClose }) 
 
   useEffect(() => {
     if (!isSearchActive) return;
-    const queryParamValue = String(query[queryParam] || '');
-    setSearchQuery(queryParamValue);
+    setSearchQuery(asPath === '/' ? '' : String(query[queryParam] || ''));
   }, [isSearchActive]);
 
   useEffect(() => {
