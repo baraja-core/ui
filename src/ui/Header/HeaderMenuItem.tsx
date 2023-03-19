@@ -30,7 +30,7 @@ export const HeaderMenuItem: FC<HeaderMenuItemProps> = ({ label, href, selected 
           sx={{
             ['@media (min-width:700px)']: {
               padding: '.25em',
-              borderBottom: useBorder(Color.whiteBackground),
+              borderBottom: useBorder('transparent'),
               ':hover': { borderBottom: useBorder(Color.white) },
             },
             ['@media (max-width:700px)']: { padding: '0 .75em' },
