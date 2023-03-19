@@ -1,5 +1,6 @@
 import { FC, ReactNode, useEffect, useState } from 'react';
 import { Box, Container, IconButton } from '@mui/material';
+import { HeaderHeight } from './types';
 import { HeaderSearchIcon } from './HeaderSearchIcon';
 import { HeaderIdentity } from './HeaderIdentity';
 import { HeaderSearch } from './HeaderSearch';
@@ -10,6 +11,7 @@ import { SearchConfiguration } from '../../core/search/types';
 import { Color } from '../../palette';
 import { Theme } from '../../core/theme/types';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import Collapse from '@mui/material/Collapse';
@@ -40,13 +42,15 @@ export const Header: FC<HeaderProps> = ({ children, orientation, search, enableL
   }, [isSearchActive]);
 
   return (
-    <Box sx={{ height: '50px', padding: '.6em 0', background: Color.dark, color: 'white' }}>
+    <Box sx={{ height: HeaderHeight, padding: '.6em 0', background: Color.dark, color: 'white' }}>
       <Container maxWidth="xl">
         <Box sx={{ display: 'flex' }}>
           <Box sx={{ display: 'flex', marginRight: '.5em', ['@media (max-width:300px)']: { display: 'none' } }}>
-            <a href="/" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <BrjLogo height={20} theme={Theme.Dark} />
-            </a>
+            <Link href="/">
+              <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
+                <BrjLogo height={20} theme={Theme.Dark} />
+              </Box>
+            </Link>
           </Box>
           {search && isSearchOpen ? (
             <HeaderSearch configuration={search} onClose={() => setSearchOpen(false)} />
