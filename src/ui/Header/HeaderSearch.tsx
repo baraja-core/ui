@@ -3,7 +3,7 @@ import { Box, IconButton, InputAdornment, TextField } from '@mui/material';
 import { SearchConfiguration } from '../../core/search/types';
 import { Color } from '../../palette';
 import SearchIcon from '@mui/icons-material/Search';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import CloseIcon from '@mui/icons-material/Close';
 import { useRouter } from 'next/router';
 
 type HeaderSearchProps = {
@@ -36,11 +36,6 @@ export const HeaderSearch: FC<HeaderSearchProps> = ({ configuration, onClose }) 
   return (
     <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'right', width: '100%' }}>
       <Box sx={{ display: 'flex', width: '100%' }}>
-        <Box>
-          <IconButton onClick={() => onClose()} sx={{ p: '.15em', mr: 1 }}>
-            <ArrowBackIcon sx={{ color: Color.white }} />
-          </IconButton>
-        </Box>
         <Box sx={{ width: '100%' }}>
           <form action={`/${configuration.serpUrl?.replace(/^\//, '')}`}>
             <TextField
@@ -62,6 +57,11 @@ export const HeaderSearch: FC<HeaderSearchProps> = ({ configuration, onClose }) 
               }}
             />
           </form>
+        </Box>
+        <Box>
+          <IconButton onClick={() => onClose()} sx={{ p: '.15em', ml: 1 }}>
+            <CloseIcon sx={{ color: Color.white }} />
+          </IconButton>
         </Box>
       </Box>
     </Box>
