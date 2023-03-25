@@ -1,7 +1,7 @@
 {
 	"compilerOptions": {
 		"outDir": "lib",
-		"module": "esnext",
+		"module": "commonjs",
 		"target": "es2018",
 		"lib": [
 			"esnext",
@@ -11,6 +11,7 @@
 		"esModuleInterop": true,
 		"jsx": "react-jsx",
 		"allowSyntheticDefaultImports": true,
+		"moduleResolution": "Node",
 		"strict": true,
 		"skipLibCheck": true,
 		"forceConsistentCasingInFileNames": true,
