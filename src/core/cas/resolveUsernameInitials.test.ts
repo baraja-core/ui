@@ -1,7 +1,7 @@
 import { resolveUsernameInitials } from './resolveUsernameInitials';
 
 describe('resolveUsernameInitialsL', () => {
-  test('Simple casesL', () => {
+  test('Simple cases', () => {
     expect(resolveUsernameInitials('')).toEqual('?');
     expect(resolveUsernameInitials('    ')).toEqual('?');
     expect(resolveUsernameInitials('  aDmin  ')).toEqual('A');

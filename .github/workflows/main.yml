@@ -10,7 +10,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Install dependencies
-        run: yarn install
+        run: yarn install --dev
 
       - name: Check TypeScript types
         run: yarn tsc --noEmit
