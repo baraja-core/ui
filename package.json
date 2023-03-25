@@ -60,7 +60,7 @@
 		"build:esm": "tsc",
 		"build:cjs": "tsc --module commonjs --outDir lib",
 		"build:types": "tsc --emitDeclarationOnly --declarationDir lib",
-		"test": "yarn jest"
+		"test": "yarn jest --coverage"
 	},
 	"files": [
 		"/src",
