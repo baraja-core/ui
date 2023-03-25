@@ -1,6 +1,6 @@
 {
 	"name": "@brj/ui",
-	"version": "0.0.0",
+	"version": "1.1.0",
 	"description": "Common BRJ UI system.",
 	"main": "./lib/cjs/index.js",
 	"module": "./lib/esm/index.js",
@@ -12,6 +12,12 @@
 	"author": "Jan Barášek <jan@barasek.com>",
 	"license": "MIT",
 	"private": false,
+	"keywords": [
+		"BRJ",
+		"UI",
+		"React",
+		"Material-UI"
+	],
 	"dependencies": {
 		"@mui/icons-material": "^5.6.0",
 		"@mui/lab": "^5.0.0-alpha.75",
@@ -39,6 +45,7 @@
 	},
 	"homepage": "https://github.com/baraja-core/ui#readme",
 	"scripts": {
+		"prepare": "npm run build",
 		"build": "yarn build:esm && yarn build:cjs",
 		"build:esm": "tsc",
 		"build:cjs": "tsc --module commonjs --outDir lib/cjs",
