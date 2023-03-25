@@ -2,9 +2,9 @@
 	"name": "@brj/ui",
 	"version": "1.1.2",
 	"description": "Common BRJ UI system.",
-	"main": "./lib/cjs/index.js",
-	"module": "./lib/esm/index.js",
-	"types": "./lib/esm/index.d.ts",
+	"main": "index.js",
+	"module": "./lib/index.js",
+	"types": "./lib/index.d.ts",
 	"repository": {
 		"url": "git+ssh://git@github.com/baraja-core/ui.git",
 		"type": "git"
@@ -56,8 +56,8 @@
 		"prepare": "npm run build",
 		"build": "yarn build:esm && yarn build:cjs && yarn build:types",
 		"build:esm": "tsc",
-		"build:cjs": "tsc --module commonjs --outDir lib/cjs",
-		"build:types": "tsc --emitDeclarationOnly --declarationDir lib/types",
+		"build:cjs": "tsc --module commonjs --outDir lib",
+		"build:types": "tsc --emitDeclarationOnly --declarationDir lib",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"files": [

@@ -1,6 +1,8 @@
 {
 	"compilerOptions": {
 		"outDir": "lib",
+		"declaration": true,
+		"declarationDir": "lib",
 		"module": "commonjs",
 		"target": "es2018",
 		"lib": [
@@ -8,8 +10,6 @@
 			"dom"
 		],
 		"baseUrl": "./src",
-		"declaration": true,
-		"declarationDir": "./lib/esm",
 		"esModuleInterop": true,
 		"jsx": "react-jsx",
 		"allowSyntheticDefaultImports": true,
