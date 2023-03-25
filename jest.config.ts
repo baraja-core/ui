@@ -7,7 +7,7 @@ const config: Config.InitialOptions = {
     '^.+\\.(js|ts|tsx)?$': 'ts-jest',
   },
   transformIgnorePatterns: ['/node_modules/(?!(@mui|@babel|@o2)/)'],
-  setupFilesAfterEnv: ['<rootDir>/../../jest.setup.ts'],
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
   globals: {
     'ts-jest': {
       isolatedModules: true,

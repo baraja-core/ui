@@ -18,5 +18,5 @@ jobs:
       - name: Build package
         run: yarn build
 
-#      - name: Test package
-#        run: yarn test
+      - name: Test package
+        run: yarn test
