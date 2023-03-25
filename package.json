@@ -54,12 +54,15 @@
 	"homepage": "https://github.com/baraja-core/ui#readme",
 	"scripts": {
 		"prepare": "npm run build",
-		"build": "yarn build:esm && yarn build:cjs",
+		"build": "yarn build:esm && yarn build:cjs && yarn build:types",
 		"build:esm": "tsc",
 		"build:cjs": "tsc --module commonjs --outDir lib/cjs",
+		"build:types": "tsc --emitDeclarationOnly --declarationDir lib/types",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"files": [
-		"/src"
+		"/src",
+		"/lib",
+		"index.js"
 	]
 }
