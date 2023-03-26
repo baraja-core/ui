@@ -30,7 +30,6 @@
 		"@types/react": "^18.0.12",
 		"@types/uuid": "^8.3.4",
 		"next": "latest",
-		"next-i18next": "^11.3.0",
 		"react-hook-form": "^7.29.0",
 		"typescript": "^4.6.3"
 	},
