@@ -3,6 +3,27 @@ BRJ/UI Library
 
 The BRJ/UI library is a set of React components built on top of Material UI. It aims to provide a set of basic UI components for use in web applications. Below is a list of the components included in the library, organized by file structure.
 
+How to start using BRJ UI?
+--------------------------
+
+First, use the basic wrapper component `<BrjApp>` to wrap your entire application.
+
+Sample usage:
+
+```tsx
+import { BrjApp } from '@brj/ui';
+
+function App() {
+  return (
+    <BrjApp>
+      <div>content</div>
+    </BrjApp>
+  );
+}
+```
+
+This component automatically provides the basic interface for application context, hooks, core component registration, graphical theme and other settings. You can program any application inside this component.
+
 Components
 ----------
 
