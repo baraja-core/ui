@@ -1,20 +1,13 @@
-export const decodeHTMLEntities = (haystack: string) => {
-  const entities = [
-    ['amp', '&'],
-    ['apos', "'"],
-    ['#x27', "'"],
-    ['#x2F', '/'],
-    ['#39', "'"],
-    ['#47', '/'],
-    ['lt', '<'],
-    ['gt', '>'],
-    ['nbsp', ' '],
-    ['quot', '"'],
-  ];
-
-  for (let i = 0, max = entities.length; i < max; ++i) {
-    haystack = haystack.replace(new RegExp('&' + entities[i][0] + ';', 'g'), entities[i][1]);
-  }
-
-  return haystack;
-};
+export const decodeHTMLEntities = (haystack: string) =>
+  [
+    { code: '&amp;', entity: '&' },
+    { code: '&apos;', entity: "'" },
+    { code: '&#x27;', entity: "'" },
+    { code: '&#x2F;', entity: '/' },
+    { code: '&#39;', entity: "'" },
+    { code: '&#47;', entity: '/' },
+    { code: '&lt;', entity: '<' },
+    { code: '&gt;', entity: '>' },
+    { code: '&nbsp;', entity: ' ' },
+    { code: '&quot;', entity: '"' },
+  ].reduce((item, entity) => item.replace(new RegExp(entity.code, 'g'), entity.entity), haystack);

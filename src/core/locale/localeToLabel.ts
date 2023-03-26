@@ -1,6 +1,6 @@
 import { Locale } from '.';
 
-const localeCodeToLabel: Record<Locale, string> = {
+const localeCodeToLabel: Partial<Record<Locale, string>> = {
   [Locale.Cs]: 'Čeština',
   [Locale.En]: 'English',
   [Locale.Fr]: 'Français',
@@ -16,4 +16,4 @@ const localeCodeToLabel: Record<Locale, string> = {
   [Locale.Da]: 'Dansk',
 };
 
-export const localeToLabel = (locale: Locale) => localeCodeToLabel[locale];
+export const localeToLabel = (locale: Locale) => localeCodeToLabel[locale] ?? locale;

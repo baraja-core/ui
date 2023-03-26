@@ -1,4 +1,6 @@
-export const highlightString = (haystack: string, query: string) =>
+import { Color } from '../../palette';
+
+export const highlightString = (haystack: string, query: string, color = Color.prideBlue) =>
   haystack.replace(
     new RegExp(
       `(${query
@@ -9,5 +11,5 @@ export const highlightString = (haystack: string, query: string) =>
         .join('|')})`,
       'gi'
     ),
-    (whole, word): string => `<strong style="color:#00158e">${word}</strong>`
+    (whole, word): string => `<strong style="color:${color}">${word}</strong>`
   );
