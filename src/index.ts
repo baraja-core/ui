@@ -34,3 +34,7 @@ export * from './ui/Internal/InternalServiceStatus';
 export * from './ui/PhpManualLogo';
 export * from './ui/SourceCode';
 export * from './ui/ThemeSwitch';
+export * from './core/cas/types';
+export * from './core/locale';
+export * from './core/shareObject/types';
+export * from './core/theme/types';
